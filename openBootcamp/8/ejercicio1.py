@@ -1,66 +1,15 @@
-# def main():
-#   usuarios = listarUsuarios()
-#   # print(usuarios)
-#   for usuario in usuarios:
-#     print(f'Usuario: {usuario}')
+def main():
+  crear('archivo.txt','primer texto')
+  add('archivo.txt','segundo texto')
 
-# def listarUsuarios():
-#   f = open('/etc/passwd','r')
-#   datos = f.readlines()
-#   f.close()
+def crear(archivo, datos):
+  f = open(archivo,'w')
+  f.write(datos+'\n')
+  f.close()
 
-#   resultado = []
-#   for linea in datos:
-#     if linea[0] == '#':
-#       continue
-#     if linea[0] == '_':
-#       continue
+def add(archivo, datos):
+  f = open(archivo, 'a')
+  f.write(datos+'\n')
 
-#     partes = linea.split(':')
-#     resultado.append(partes[0])
-
-#   return resultado
-
-# if __name__ == '__main__':
-#   main()
-
-
-# def escribe(fichero, datos):
-#   f = open(fichero, 'w')
-#   for linea in datos:
-#     if not linea.endswith('\n'):
-#       linea += '\n'
-#     f.write(linea)
-#   f.close()
-
-# lista = ['una linea',
-#          'dos lineas',
-#          'tres lineas']
-# escribe('mifichero.txt', lista)
-
-
-# import pickle
-
-# class Juguete:
-#   nombre = ''
-#   precio = 0.0
-  
-#   def __init__(self, nombre, precio):
-#     self.nombre = nombre
-#     self.precio = precio
-    
-#   def getNombre(self):
-#     return self.nombre
-  
-# potato = Juguete("Potato", 10.5)
-# f = open('datos.bin', 'wb')
-# # print(j1)
-# pickle.dump(potato, f)
-# f.close()
-
-# f = open('datos.bin', 'rb')
-# potato = pickle.load(f)
-# f.close()
-
-# print(type(potato))
-# print(potato)
+if __name__ == '__main__':
+  main()
